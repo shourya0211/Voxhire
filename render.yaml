@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: voxhire-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: HUNAR_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: CALLBACK_BASE_URL
+        sync: false
+  - type: web
+    name: voxhire-web
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: API_URL
+        fromService:
+          name: voxhire-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL

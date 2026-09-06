@@ -1,0 +1,1 @@
+"""VoxHire backend."""

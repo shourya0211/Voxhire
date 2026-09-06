@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #0f1b2d;
+  --card: #ffffff;
+  --card-foreground: #0f1b2d;
+  --primary: #0f766e;
+  --primary-foreground: #f0fdfa;
+  --secondary: #e8eef6;
+  --secondary-foreground: #0f1b2d;
+  --muted: #eef2f7;
+  --muted-foreground: #5b6b7c;
+  --accent: #0ea5a4;
+  --accent-foreground: #042f2e;
+  --destructive: #b42318;
+  --border: #d7e0ea;
+  --input: #d7e0ea;
+  --ring: #0f766e;
+  --sidebar: #0b1220;
+  --sidebar-foreground: #e8eef6;
+  --sidebar-muted: #93a4b8;
+  --success: #067647;
+  --warning: #b54708;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sora);
+  --font-display: var(--font-fraunces);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at 100% -10%, rgba(14, 165, 164, 0.12), transparent 55%),
+    radial-gradient(900px 420px at -5% 0%, rgba(15, 118, 110, 0.08), transparent 50%),
+    var(--background);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.55s ease-out 0.08s both;
+}
+
+.page-shell {
+  @apply mx-auto w-full max-w-6xl px-5 py-8 sm:px-8 sm:py-10;
+}
+
+.surface {
+  @apply rounded-2xl border border-border bg-card shadow-[0_1px_0_rgba(15,27,45,0.04)];
+}
+
+.status-dot {
+  @apply inline-block h-2 w-2 rounded-full;
+}
